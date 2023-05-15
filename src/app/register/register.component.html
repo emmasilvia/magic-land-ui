@@ -1,0 +1,81 @@
+<body>
+    <div class="wrapper">
+        <div align="center" class="form-content">
+            <div class="title">
+                Register
+
+            </div>
+
+            <form action="" method="get" align="center">
+
+                <div class="form-container">
+
+                    <div class="field">
+                        <mat-form-field>
+                            <mat-label>
+                                Prenume
+                            </mat-label>
+                            <input matInput [(ngModel)]="persoana.prenume" name="prenume">                           
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field">
+                        <mat-form-field>
+                            <mat-label>
+                                Nume
+                            </mat-label>
+                            <input matInput [(ngModel)]="persoana.nume" name="nume">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field">
+                        <mat-form-field>
+                            <mat-label>
+                                Email
+                            </mat-label>
+                            <input matInput [(ngModel)]="persoana.email" name="email">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field">
+                        <mat-form-field>
+                            <mat-label>
+                                Parola
+                            </mat-label>
+                            <input matInput type="password" [(ngModel)]="persoana.password" name="password">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field">
+                        <mat-form-field>
+                            <mat-label>
+                               Confirma parola
+                            </mat-label>
+                            <input matInput type="password" [(ngModel)]="persoana.confirmPassword" name="confirmPassword">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="field">
+                        <mat-form-field>
+                          <mat-label>
+                            Tip acces
+                          </mat-label>
+                          <mat-select name="tip" [(ngModel)]="persoana.tip">
+                            <mat-option *ngFor="let tip of tipuri" value="{{tip.nume}}">
+                              {{tip.nume}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <button mat-raised-button (click)="register()">Register</button>
+                    <button mat-raised-button [routerLink]="['/login']">Log-in</button>
+
+
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</body>

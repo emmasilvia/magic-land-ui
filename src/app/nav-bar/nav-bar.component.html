@@ -1,0 +1,35 @@
+<mat-toolbar class="navbar">
+    <div class="">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img class ="logo" src="assets/img1/logo.png">
+        </a>
+      </div>
+    </div>
+    <div style="max-width: 50%; margin:auto;" class="mat-tab-nav-bar">
+      <a mat-button [routerLink]="['/activitati-parc']" class="home-button">Activitati</a>
+      <a mat-button [routerLink]="['/tichete']" class="tichet-button">Tichete</a>
+      <a mat-button [routerLink]="['/rezervari']" class="rezervare-button">Fa o rezervare</a>
+      <a mat-button *ngIf="tip === 'ADMINISTRATOR'" [routerLink]="['/products']" class="add-button">Add product</a>
+      <a mat-button *ngIf="tip === 'ADMINISTRATOR'" [routerLink]="['/categories']" class="add-button">Add category</a>
+      <a mat-button *ngIf="tip === 'ADMINISTRATOR'" [routerLink]="['/product-table-view']" class="product-table-view">Table products</a>
+    </div>
+    <div style="width: 300px; max-height: 60px; align-content: center">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="searchProduct($event)"  type="text">
+        </mat-form-field>
+      </form>
+    </div>
+    <div>
+      <a mat-button [routerLink]="['/shopping-cart']" >
+        <mat-icon matBadge="{{numberOfProductsInCart}}" matBadgeColor="warn">
+          <span class="material-icons">
+           add_shopping_cart
+          </span>
+        </mat-icon>
+      </a>
+      <a mat-raised-button color="accent" routerLink="/login">Log Out</a>
+    </div>
+  </mat-toolbar>

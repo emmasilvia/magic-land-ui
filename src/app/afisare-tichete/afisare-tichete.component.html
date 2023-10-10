@@ -1,0 +1,12 @@
+<h2>Bon Details:</h2>
+<p>Nr bon: {{ details.bon.nrBon }}</p>
+
+
+<h2>Tichet Details:</h2>
+<div *ngFor="let tichet of details.tichete">
+
+  <p>Categorie tichet: {{tichet.categorie_tichet.categorieVarsta}}</p>
+</div>
+
+<p>Total tarif: {{ totalTarif }} LEI</p>
+

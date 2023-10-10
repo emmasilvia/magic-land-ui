@@ -1,15 +1,14 @@
-<body>
-    <div class="titlu-text">
-        <div class="titlu-register">
-            <button mat-raised-button  name="register" routerLink="/register">Creeaza cont</button>
-        </div>
-        <div class="titlu-login">
-            LOGIN
-        </div>
-    </div>
+<app-nav-bar></app-nav-bar>
+
+<div class="titlu-text">
+        LOGIN
+    
+</div>
+
 
     <div class="form-container">
-        <form action="#" class="login">
+       
+        <form [formGroup]="loginForm" action="#" class="login">
             <div class="form-field">
                 <mat-form-field>
                     
@@ -17,7 +16,7 @@
                         Email
                     </mat-label>
 
-                    <input matInput [(ngModel)]="email" [ngModelOptions]="{ standalone: true }" type="email">
+                    <input class="form-control" matInput [(ngModel)]="email" [ngModelOptions]="{ standalone: true }" type="email">
 
                 </mat-form-field>
             </div>
@@ -29,16 +28,25 @@
                         Parola
                     </mat-label>
 
-                    <input matInput [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" type="password">
+                    <input class="form-control" matInput [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" type="password">
 
                 </mat-form-field>
             </div>
             
-            <button mat-raised-button (click)="login()">Login</button>
+            <button mat-raised-button (click)="login()" class="btnLogin">Login</button>
+            <button mat-raised-button (click)="resetPassword()" class="btnLogin">Reset Password</button>
 
         </form>
+
+        <mat-label class="label-register">
+            Nu ai un cont? Inregistrează-te aici.
+        </mat-label>
+        <div class="titlu-register">
+            <button mat-raised-button  name="register" routerLink="/register" class="btnRegister">Creeaza cont</button>
+        </div>
+          
     </div>
-</body>
+
 
 
     

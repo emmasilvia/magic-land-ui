@@ -1,0 +1,74 @@
+
+<div class="form" >
+  <mat-card-title class="title">Editeaza activitatea</mat-card-title>
+
+  <form [formGroup]="editActivitateForm">
+    <input type="hidden" formControlName="id">
+
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Denumire activitate</mat-label>
+      <input matInput formControlName="denumire" [value]="activitate.denumire">
+    </mat-form-field>
+    
+    <mat-form-field class="content">
+      <mat-label style="color: #a445b2">Durata activitatii</mat-label>
+      <input matInput min="1" formControlName="durata" type="number" [value]="activitate.durata">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Varsta minima</mat-label>
+      <input matInput min="1" formControlName="varstaMinima" type="number" [value]="activitate.varstaMinima">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Program</mat-label>
+      <input matInput name="program_activitate" formControlName="program" [value]="activitate.program">
+    </mat-form-field>
+
+      
+        <mat-form-field class="example-full-width">
+          <mat-label style="color: #a445b2">Descriere</mat-label>
+          <textarea matInput name="descriere" formControlName="descriere" [value]="activitate.descriere"></textarea>
+        </mat-form-field>
+
+    
+
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Nivelul de dificultate</mat-label>
+      <mat-select name="nivelDificultate" formControlName="nivelDificultate" [value]="activitate.nivelDificultate">
+        <mat-option *ngFor="let nivelDificultate of niveleDificultate" [value]="nivelDificultate">{{nivelDificultate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Tip activitate</mat-label>
+      <mat-select name="tipActivitate" formControlName="tipActivitate" [value]="activitate.tipActivitate">
+        <mat-option *ngFor="let tipActivitate of tipuriActivitate" [value]="tipActivitate">{{tipActivitate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+     <mat-form-field>
+      <mat-label style="color: #a445b2">Zona:</mat-label>
+        <mat-select formControlName="zona">
+          <mat-option *ngFor="let zona of zone" [value]="zona">
+            {{ zona.denumire }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+   <!-- <mat-form-field>
+      <mat-label style="color: #a445b2">Animale:</mat-label>
+        <mat-select formControlName="animal">
+          <mat-option *ngFor="let animal of animale" [value]="animal.value">
+            {{ animal }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field> -->
+
+    <br>
+ 
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Anulează</button>
+      <button mat-button color="warn" (click)="onConfirm()">OK</button>
+    </div>
+  </form>
+
+</div>

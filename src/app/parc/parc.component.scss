@@ -1,0 +1,96 @@
+header {
+    color: #0694c8;
+    font-style: oblique;
+    font-size: 50px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Footer styles */
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    width: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-section li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-section form {
+    margin-top: 30px;
+  }
+  
+  .footer-section input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-section button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .park-description h2,
+.zipline-section h2,
+.climbing-section h2,
+.relaxation-section h2 {
+  font-size: 15px;
+  color: #333;
+
+}
+
+.park-description p,
+.zipline-section p,
+.climbing-section p,
+.relaxation-section p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* Adauga stilizare aditionala dupa necesitate */
+
+  body{
+    background-color: rgb(255, 255, 255);
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50px; /* Ajustați valoarea după cum aveți nevoie */
+  }
+  
+  .custom-button {
+    font-size: 20px; /* Ajustați dimensiunea fontului după cum aveți nevoie */
+    padding: 10px 20px;
+    border-radius: 30px; /* Ajustați valoarea pentru a obține forma dorită */
+    background-color: #0694c8; /* Ajustați culoarea de fundal după preferințele dvs. */
+    color: #FFFFFF; /* Ajustați culoarea textului după preferințele dvs. */
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  

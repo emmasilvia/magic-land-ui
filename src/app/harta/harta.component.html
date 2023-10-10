@@ -1,0 +1,24 @@
+
+<app-nav-bar></app-nav-bar>
+<div class="map-container">
+  <ng-container *ngFor="let zona of zone">
+    <mat-card class="zone-card">
+      <p class="denumire-zona">
+        Zona: {{ zona.denumire }}
+      </p>
+      <div class="activitati-container">
+        <mat-card-content class="activitate-card" *ngFor="let activitate of activitatiForZone(zona)">
+          Activitate: {{ activitate.denumire }}
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </ng-container>
+</div>
+
+
+
+
+
+  <!-- <div id="map" style="width: 100%; height: 500px;"></div> -->
+
+    

@@ -1,0 +1,98 @@
+<app-nav-bar></app-nav-bar>
+
+<form [formGroup]="tichetForm" (ngSubmit)="salveazaTichetele()">
+  <div formArrayName="tichetFormArray">
+    <div *ngFor="let tichetGroup of tichetFormArray.controls; let i = index">
+      <div [formGroupName]="i">
+        
+        <mat-label class="titlu">Tichet</mat-label>
+        <br>  
+        <mat-label>Alege o categorie:</mat-label>
+        <mat-select formControlName="categorie_tichet">
+          <mat-option *ngFor="let categorie of categorii" value="{{categorie.categorieVarsta}}" placeholder="COPIL, STUDENT,etc.">
+            {{ categorie.categorieVarsta }} - {{categorie.tarif}} LEI
+          </mat-option>
+        </mat-select>
+        <mat-label>Alege tipul tichetului:</mat-label>
+        <mat-select formControlName="tipTichet">
+          <mat-option name="tipTichet" *ngFor="let tipTichet of tipuriTichet" value="{{tipTichet}}" placeholder="BILET sau ABONAMENT">
+            {{ tipTichet }}
+          </mat-option>
+        </mat-select>
+        <div>
+        <mat-label>Durata abonament(nr. de luni)</mat-label>
+        <input formControlName="durataAbonament" type="number" min="1" placeholder="Durata abonamentului in nr de luni">
+      </div>
+       
+    </div>
+   
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+ 
+</form>
+
+<!-- <app-nav-bar></app-nav-bar>
+
+<form [formGroup]="tichetForm" (ngSubmit)="salveazaTichetele()">
+  <div formArrayName="tichetFormArray">
+    <div *ngFor="let tichetGroup of tichetFormArray.controls; let i = index">
+      <div [formGroupName]="i">
+        <mat-label>Alege o categorie:</mat-label>
+        <mat-select formControlName="categorie_tichet">
+          <mat-option *ngFor="let categorie of categorii" [value]="categorie.categorieVarsta">
+            {{ categorie.categorieVarsta }} - {{categorie.tarif}}
+          </mat-option>
+        </mat-select>
+        <mat-label>Alege tipul:</mat-label>
+        <mat-select formControlName="tipTichet">
+          <mat-option *ngFor="let tipTichet of tipuriTichet" [value]="tipTichet">
+            {{ tipTichet }}
+          </mat-option>
+        </mat-select>
+        <input formControlName="durataAbonament" type="text" placeholder="Durata Abonament">
+      </div>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form> -->
+
+
+<h2>Tichete</h2>
+<table *ngIf="tip === 'ADMINISTRATOR'"  class="custom-table">
+  <thead>
+    <tr>
+
+      <th>Categorie Tichet</th>
+      <th>Tip tichet</th>
+      <th>Valabilitate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tichet of tichete">
+
+      <td>{{ tichet.categorie_tichet}}</td>
+      <td>{{ tichet.tipTichet }}</td>
+      <td>{{ tichet.valabilitate }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- 
+<app-nav-bar></app-nav-bar>
+
+<form [formGroup]="tichetForm" (ngSubmit)="salveazaTichetele()">
+  <mat-form-field class="wide-select">
+    <mat-label>Alege o categorie:</mat-label>
+    <mat-select formControlName="categorie">
+      <mat-option *ngFor="let categorie of categorii" [value]="categorie">
+        {{ categorie.denumire }} - {{ categorie.tarif }} RON
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <button mat-raised-button type="submit">Rezerva</button>
+</form> -->

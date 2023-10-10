@@ -1,0 +1,41 @@
+.logo {
+  width: 1%;
+  height: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo img {
+  width: 165%; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+.navbar {
+  background: -webkit-linear-gradient(left, #a445b2, #2d80ee);
+}
+
+.home-button {
+  font-style: italic;
+  font-size: medium;
+  color: black;
+}
+
+.rezervare-button {
+  font-style: italic;
+  font-size: medium;
+}
+
+.tichet-button {
+  font-style: italic;
+  font-size: medium;
+}
+
+.activitati {
+  font-style: italic;
+  font-size: medium;
+}
+
+.material-icons-outlined {
+  font-size: 10%;
+}/*# sourceMappingURL=nav-bar.component.css.map */

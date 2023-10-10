@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #286adc;
+}
+
+app-nav-bar {
+  /* Add any styles specific to the app-nav-bar component here */
+}
+
+.filter-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-wrapper .mat-form-field {
+  flex: 1;
+  margin-right: 10px;
+  min-width: 100px;
+}
+
+.filter-wrapper .mat-form-field:last-child {
+  margin-right: 0;
+}
+
+.filter-wrapper .mat-form-field .mat-form-field-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.filter-wrapper .mat-form-field .mat-input-element {
+  height: 28px;
+}
+
+.activitate-wrapper {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.activitate-list {
+  flex-basis: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+
+mat-card {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #a445b2;
+}
+
+mat-card-subtitle {
+  font-size: 14px;
+  color: #777;
+}
+
+mat-card-content {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+mat-paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+  /* Footer styles */
+  footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    width: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-section li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-section form {
+    margin-top: 10px;
+  }
+  
+  .footer-section input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-section button {
+    background-color: #a445b2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+
+
+  

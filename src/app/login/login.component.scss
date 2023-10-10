@@ -1,0 +1,78 @@
+.titlu-text {
+    font-size: 20px;
+    font-family: 'Homemade Apple', cursive; 
+    color: #360069;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+
+
+.form-container {
+    margin-top: -150px; /* Adjust this value to move the form container higher */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* This will center the form vertically on the page */
+}
+
+
+.form-field {
+    width: 100%; /* Make sure the form fields take the full width */
+}
+
+/* Optional: Center the button horizontally within the form */
+.login-button {
+    display: flex;
+    justify-content: center;
+   
+}
+
+/* Optional: To center the "Creeaza cont" button, you can use the following styles */
+.titlu-register {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Add some margin between the form and the button */
+}
+.label-register{
+    margin-top: 20px;
+}
+
+/* Optional: Adjust the font size and other styles as needed */
+.mat-label, .form-control, .btnLogin, .btnRegister {
+    font-size: 20px;
+    font-family: 'Sorts Mill Goudy', serif;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* This will center the form vertically on the page */
+}
+
+.form-field {
+    width: 100%; /* Make sure the form fields take the full width */
+}
+
+/* Optional: Center the button horizontally within the form */
+.login-button {
+    display: flex;
+    justify-content: center;
+}
+
+/* Optional: To center the "Creeaza cont" button, you can use the following styles */
+.titlu-register {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Add some margin between the form and the button */
+}
+
+/* Optional: Adjust the font size and other styles as needed */
+.mat-label, .form-control, .btnLogin, .btnRegister {
+    font-size: 20px;
+    font-family: 'Sorts Mill Goudy', serif;
+}

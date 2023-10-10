@@ -1,0 +1,99 @@
+<app-nav-bar></app-nav-bar>
+<div *ngIf="showForm">
+  <form [formGroup]="rezervareForm" (ngSubmit)="creeazaRezervare()">
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [min]="today" formControlName="dataVizita">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>
+      Numarul de persoane:
+    </mat-label>
+    <input matInput name="nrPersoane" type="number" min="1" formControlName="nrPersoane">
+  </mat-form-field>
+
+  <!-- <mat-form-field class="full-width">
+    <mat-label>
+      Introdu email:
+    </mat-label>
+    <input matInput name="email" type="email" min="1" formControlName="email">
+  </mat-form-field> -->
+
+  <button mat-raised-button type="submit">Next</button>
+</form>
+</div>
+
+<table *ngIf="tip === 'CLIENT'" class="custom-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data Vizita</th>
+      <th>Nr Persoane</th>
+      <th>Persoana</th>
+      <th>Detalii</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of rezervari"  >
+      <td>{{ item.id }}</td>
+      <td>{{ item.dataVizita }}</td>
+      <td>{{ item.nrPersoane }}</td>
+      <td>{{ item.persoana }}</td>
+      <td>
+        <button (click)="showReservationDetails(item.id)">View Details</button>
+      </td>
+   
+    </tr>
+  </tbody>
+</table>
+
+<table *ngIf="tip === 'ADMINISTRATOR'" class="custom-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data Vizita</th>
+      <th>Nr Persoane</th>
+      <th>Persoana</th>
+      <th>Detalii</th>
+      <th>Stergere</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of rezervari"  >
+      <td>{{ item.id }}</td>
+      <td>{{ item.dataVizita }}</td>
+      <td>{{ item.nrPersoane }}</td>
+      <td>{{ item.persoana }}</td>
+      <td>
+        <button (click)="showReservationDetails(item.id)">View Details</button>
+      </td>
+      <td>
+        <button (click)="deleteRezervare(item.id)">Sterge rezervare</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

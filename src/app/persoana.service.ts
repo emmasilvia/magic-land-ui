@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PersoanaDTO, Tip } from './model/persoana-model';
 import { Observable } from 'rxjs';
@@ -26,4 +26,25 @@ export class PersoanaService {
   create(requestPersoanaDto: RequestPersoanaDto): Observable<any> {
     return this.httpClient.post<RequestPersoanaDto>(this.API_PATH, requestPersoanaDto);
   }
+
+  sendEmail(email: string): Observable<any> {
+    const url = AppConfig.API_PATH + '/subscribe';
+    return this.httpClient.post(url, email , { responseType: 'text' } );
+  }
+
+  resetPassword(email: string): Observable<any> {
+    const requestBody = { email };
+    return this.httpClient.post(AppConfig.API_PATH+'/reset', requestBody, {responseType: 'text'});
+  }
+
+
+  changePassword(oldPassword: string, newPassword: string, email: string): Observable<any> {
+    const params = new HttpParams()
+      .set('email', email)
+      .set('oldPassword', oldPassword)
+      .set('newPassword', newPassword);
+
+    return this.httpClient.post(AppConfig.API_PATH + '/changepassword', {}, { params, responseType: 'text' });
+  }
+
 }

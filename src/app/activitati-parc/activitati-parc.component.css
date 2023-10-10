@@ -1,0 +1,11 @@
+.activitate-card {
+  max-width: 200px;
+  min-height: 520px;
+  float: left;
+  max-height: 520px;
+  margin: 10px;
+}
+
+.activitate-list {
+  width: 300px;
+}/*# sourceMappingURL=activitati-parc.component.css.map */

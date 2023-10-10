@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files *//*# sourceMappingURL=styles.css.map */
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}/*# sourceMappingURL=styles.css.map */
+
+@import '~ngx-toastr/toastr.css';
+
+  /* Customize Toastr success notification */
+  .ngx-toastr.success {
+    background-color: green;
+    color: white;
+  }
+  
+  /* Customize Toastr error notification */
+  .ngx-toastr.error {
+    background-color: red;
+    color: white;
+  }

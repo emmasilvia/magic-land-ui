@@ -1,2 +1,130 @@
-<app-nav-bar></app-nav-bar>
-<p>activitati-parc works!</p>
+<app-nav-bar (searchChangeEvent)="filterActivitati($event)"></app-nav-bar>
+
+<!-- *ngIf="tip === 'ADMINISTRATOR'" -->
+<a>
+  <button mat-raised-button color="primary" *ngIf="tip === 'ADMINISTRATOR'"[routerLink]="['/adauga-activitati']">Adauga activitate</button>
+</a>
+<div class="filter-wrapper">
+
+  <!-- <app-categories-tree-view (categoryChangeEvent)="filterTipActivitate($event)">
+  </app-categories-tree-view> -->
+
+
+  
+  <mat-form-field class="full-width">
+    <mat-label>
+      Durata Minima
+    </mat-label>
+    <input matInput name="durata-minima-filter" type="number" min="1" (keyup)="changeDurataMinima($event)">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>
+      Durata Maxima
+    </mat-label>
+    <input matInput name="durata-maxima-filter" type="number" min="1" (keyup)="changeDurataMaxima($event)">
+  </mat-form-field>
+<!-- 
+  <mat-form-field class="full-width">
+    <mat-label>
+      Varsta Minima
+    </mat-label>
+    <input matInput name="varsta-minima-filter" type="number" min="5" (keyup)="changeVarstaMinima($event)">
+  </mat-form-field> -->
+
+  <mat-form-field class="full-width">
+    <mat-label>
+      Nivel Dificultate
+    </mat-label>
+    <mat-select (selectionChange)="filterActivitateNivelDificultate($event)" name="nivelDificultate">
+      <mat-option *ngFor="let nivel of niveleDificultate " value="{{nivel}}">{{nivel}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width">
+    <mat-label>
+      Tip Activitate
+    </mat-label>
+    <mat-select (selectionChange)="filterTipActivitate($event)" name="tipActivitate">
+      <mat-option *ngFor="let tip of tipuriActivitati" value="{{tip}}">{{tip}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>        
+
+<div class="activitate-wrapper">
+  <div class="activitate-list">
+    <mat-card *ngFor="let item of activitati">
+      <mat-card-title>{{ item.denumire }}</mat-card-title>
+      <!-- <img [src]="item.imagine" alt="{{ item.denumire }} Image" /> -->
+      <mat-card-subtitle>Categoria activitatii: {{item.tipActivitate}} </mat-card-subtitle>
+      <mat-card-content>
+        <p class="description-paragraph">
+          Descriere: {{ item.descriere }}
+        </p>
+        <p class="durata">
+          Durata: {{ item.durata }} minute
+        </p>
+        <p class="varstaMinima">
+          Varsta minima: {{ item.varstaMinima }} ani
+        </p>
+        <p class="nivelDificultate-paragraph">
+          Nivelul de dificultate: {{ item.nivelDificultate }}
+        </p>
+        <p class="program">
+          Program: {{ item.program }} 
+        </p>
+        
+          <img [src]="item.imagine" alt="Imagine activitate">
+        
+          <button mat-raised-button *ngIf="tip === 'ADMINISTRATOR'"(click)="delete(item.id)">Delete</button>
+        <button mat-raised-button  (click)="rezerva(item.id)">Rezerva/Rezervarile mele</button>
+        <button mat-raised-button *ngIf="tip === 'ADMINISTRATOR'"(click)="update(item.id)">Editeaza</button>
+
+      </mat-card-content>
+      
+    </mat-card>
+    
+
+    
+  </div>
+  <div>
+    <mat-paginator [length]="totalNumberOfElements" [pageSizeOptions]="[5,10]" (page)="changePage($event)"></mat-paginator>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-section">
+    <h3>Contact</h3>
+    <ul>
+      <li>Phone: 123-456-789</li>
+      <li>Email: info@magiclandpark.com</li>
+      <li>Address: 123 Park Street, Magicland</li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h3>About Us</h3>
+    <p>MagicLand Park is a magical amusement park that offers fun and excitement for all ages.</p>
+  </div>
+  <div class="footer-section">
+    <h3>Newsletter</h3>
+    <p>Subscribe to our newsletter to receive updates and special offers.</p>
+    <form [formGroup]="subForm" (ngSubmit)="sendEmail()">
+      <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+      <button mat-raised-button="primary" type="submit">Subscribe</button>
+    </form>
+    
+  </div>
+  <div class="footer-section">
+    <h3>Other</h3>
+    <ul>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+

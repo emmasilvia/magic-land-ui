@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+}
+
+app-nav-bar {
+    /* Add any styles specific to the app-nav-bar component here */
+}
+
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+mat-hint {
+    font-size: 12px;
+    color: #777;
+}
+
+mat-datepicker-toggle {
+    color: #777;
+}
+
+.full-width {
+    width: 100%;
+}
+
+button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #a445b2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #9558bf;
+}
+
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+.custom-table thead {
+    background-color: #f2f2f2;
+  }
+  
+.custom-table th, .custom-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+.custom-table th {
+    background-color: #a445b2;
+    color: white;
+  }
+  

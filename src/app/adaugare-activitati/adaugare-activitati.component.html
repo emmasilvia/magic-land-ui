@@ -1,0 +1,74 @@
+<app-nav-bar></app-nav-bar>
+<div class="form">
+  <mat-card-title class="title">Adauga activitate</mat-card-title>
+  <hr>
+  <form [formGroup]="activitateForm">
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Denumire activitate</mat-label>
+      <input matInput  name="denumire_activitate" formControlName="denumire">
+    </mat-form-field>
+    <mat-form-field class="content">
+      <mat-label style="color: #a445b2">Durata activitatii</mat-label>
+      <input matInput name="durata_activitate" min="1" formControlName="durata" type="number">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Varsta minima</mat-label>
+      <input matInput  name="varstaMin_activitate" min="1" formControlName="varstaMinima" type="number">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Program</mat-label>
+      <input matInput  name="program_activitate" formControlName="program">
+    </mat-form-field>
+
+
+   
+        <mat-form-field>
+          <mat-label style="color: #a445b2">Descriere</mat-label>
+          <input matInput name="descriere_activitate" formControlName="descriere">
+        </mat-form-field>
+  
+  
+
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Nivelul de dificultate</mat-label>
+      <mat-select name = "nivelDificultate" formControlName="nivelDificultate">
+        <mat-option *ngFor="let nivelDificultate of niveleDificultate" value="{{nivelDificultate}}">{{nivelDificultate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label style="color: #a445b2">Tip activitate</mat-label>
+      <mat-select name = "tipActivitate"formControlName="tipActivitate">
+        <mat-option *ngFor="let tipActivitate of tipuriActivitate" value="{{tipActivitate}}">{{tipActivitate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-label>Alege o zona:</mat-label>
+    <mat-select formControlName="zona">
+      <mat-option *ngFor="let zona of zone" [value]="zona.denumire">
+        {{ zona.denumire }}
+      </mat-option>
+    </mat-select>
+
+  <!-- <mat-form-field>
+      <mat-label>Animale</mat-label>
+      <mat-selection-list #animaleList formControlName="animale">
+        <mat-list-option *ngFor="let selectedAnimal of animaleList.selectedOptions.selected">
+          {{ selectedAnimal.value }} 
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-form-field> -->
+    
+
+    <!-- <input type="file" (change)="onFileSelected($event)" formControlName="imagine"> -->
+
+    <br>
+    
+    
+    <button mat-raised-button  (click)="save()">Adauga activitate</button>
+    <button mat-raised-button   [routerLink]="['/activitati']">Cancel</button>
+  </form>
+</div>
+

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthorizationService } from '../authorization.service';
+import { PersoanaDTO } from '../model/persoana-model';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,10 +13,17 @@ export class NavBarComponent {
 
   @Input() numberOfProductsInCart = 0;
   @Output() searchChangeEvent: EventEmitter<string> = new EventEmitter<string>();
-  tip = localStorage.getItem('TIP');
+  tip = localStorage.getItem('tip');
+  persoana: PersoanaDTO[]=[];
+  welcomeMessage: string; 
+  isLoggedIn: boolean = true;
 
-  constructor( private router: Router) {
+
+  constructor( private router: Router, public authService: AuthorizationService) {
+      this.welcomeMessage = 'Bine ati venit ';
   }
+
+
 
    ngOnInit(): void {
   //   if (localStorage.getItem(AppConfig.AUTHORIZATION_HEADER)) {
@@ -22,6 +31,19 @@ export class NavBarComponent {
   //       this.numberOfProductsInCart = data.productsInCart.length;
   //     });
   //   }
+
+  this.authService.getCurrentUser().subscribe(
+    (persoana: PersoanaDTO) => {
+      if (persoana) {
+        this.welcomeMessage = `Bine ati venit, ${persoana.nume} ${persoana.prenume}!`;
+      } else {
+        this.welcomeMessage = 'Bine ati venit!';
+      }
+    },
+    (error) => {
+      console.log('Error:', error);
+    }
+  );
   }
 
   searchProduct(event: any): void {
@@ -34,9 +56,17 @@ export class NavBarComponent {
     this.router.navigate(['/shopping-cart']);
   }
 
+  
   logout(): void {
-    localStorage.clear();
-    this.ngOnInit();
-    this.router.navigate(['/login']);
+    this.authService.clearLocalStorage();
+    this.router.navigate(['/']);
+  }
+
+  isLoginPage(): boolean {
+    return this.router.url === '/login';
+  }
+
+  isRegisterPage(): boolean {
+    return this.router.url === '/register';
   }
 }

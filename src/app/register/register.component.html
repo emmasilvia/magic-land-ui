@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <body>
     <div class="wrapper">
         <div align="center" class="form-content">
@@ -6,7 +7,7 @@
 
             </div>
 
-            <form action="" method="get" align="center">
+            <form [formGroup]="registerForm" method="get" align="center">
 
                 <div class="form-container">
 
@@ -15,7 +16,7 @@
                             <mat-label>
                                 Prenume
                             </mat-label>
-                            <input matInput [(ngModel)]="persoana.prenume" name="prenume">                           
+                            <input matInput [(ngModel)]="persoana.prenume" name="prenume" formControlName="prenume">                           
                         </mat-form-field>
                     </div>
 
@@ -24,7 +25,7 @@
                             <mat-label>
                                 Nume
                             </mat-label>
-                            <input matInput [(ngModel)]="persoana.nume" name="nume">
+                            <input matInput [(ngModel)]="persoana.nume" name="nume" formControlName="nume">
                         </mat-form-field>
                     </div>
 
@@ -33,8 +34,10 @@
                             <mat-label>
                                 Email
                             </mat-label>
-                            <input matInput [(ngModel)]="persoana.email" name="email">
+                            <input matInput [(ngModel)]="persoana.email" name="email" formControlName="email">
+       
                         </mat-form-field>
+                        <mat-error *ngIf="registerForm.get('email')?.hasError('email')">Acest camp trebuie sa fie un email.</mat-error>
                     </div>
 
                     <div class="field">
@@ -42,8 +45,12 @@
                             <mat-label>
                                 Parola
                             </mat-label>
-                            <input matInput type="password" [(ngModel)]="persoana.password" name="password">
+                            <input matInput type="password" [(ngModel)]="persoana.password" name="password" formControlName="password">
+          
                         </mat-form-field>
+                        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">Parola este obligatorie</mat-error>
+                        <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">Parola trebuie sa contina minim 7 caractere.</mat-error>
+                        <mat-error *ngIf="registerForm.get('password')?.hasError('pattern')">Parola trebuie sa contina cel putin o majuscula, o minuscula si o cifra.</mat-error>
                     </div>
 
                     <div class="field">
@@ -51,7 +58,9 @@
                             <mat-label>
                                Confirma parola
                             </mat-label>
-                            <input matInput type="password" [(ngModel)]="persoana.confirmPassword" name="confirmPassword">
+                            <input matInput type="password" [(ngModel)]="persoana.confirmPassword" name="confirmPassword" formControlName="confirmPassword">
+                            <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('required')">Confirmarea parolei este obligatorie.</mat-error>
+                            <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('matchPassword')">Parolele nu se potrivesc.</mat-error>
                         </mat-form-field>
                     </div>
 
@@ -60,7 +69,7 @@
                           <mat-label>
                             Tip acces
                           </mat-label>
-                          <mat-select name="tip" [(ngModel)]="persoana.tip">
+                          <mat-select name="tip" [(ngModel)]="persoana.tip" formControlName="tip">
                             <mat-option *ngFor="let tip of tipuri" value="{{tip.nume}}">
                               {{tip.nume}}
                             </mat-option>
@@ -68,7 +77,7 @@
                         </mat-form-field>
                     </div>
 
-                    <button mat-raised-button (click)="register()">Register</button>
+                    <button mat-raised-button (click)="register()" [disabled]="registerForm.invalid">Register</button>
                     <button mat-raised-button [routerLink]="['/login']">Log-in</button>
 
 

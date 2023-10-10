@@ -22,8 +22,38 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
-import { PaginaPrincipalaComponent } from './pagina-principala/pagina-principala.component';
 import { ParcComponent } from './parc/parc.component';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import { AdaugareActivitatiComponent } from './adaugare-activitati/adaugare-activitati.component';
+import { CreeazaRezervareComponent } from './creeaza-rezervare/creeaza-rezervare.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { TicheteComponent } from './tichete/tichete.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditareActivitateComponent } from './editare-activitate/editare-activitate.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { HartaComponent } from './harta/harta.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatSortModule } from '@angular/material/sort';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AfisareTicheteComponent } from './afisare-tichete/afisare-tichete.component';
+import { PersoanaService } from './persoana.service';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ReseteazaParolaComponent } from './reseteaza-parola/reseteaza-parola.component';
+const firebaseConfig = {
+  // Your Firebase configuration here
+};
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +62,16 @@ import { ParcComponent } from './parc/parc.component';
     RegisterComponent,
     ActivitatiParcComponent,
     NavBarComponent,
-    PaginaPrincipalaComponent,
-    ParcComponent
+    ParcComponent,
+    AdaugareActivitatiComponent,
+    CreeazaRezervareComponent,
+    TicheteComponent,
+    EditareActivitateComponent,
+    DeleteDialogComponent,
+    HartaComponent,
+    AfisareTicheteComponent,
+    ChangePasswordComponent,
+    ReseteazaParolaComponent
   ],
   imports: [
     BrowserModule,
@@ -44,16 +82,34 @@ import { ParcComponent } from './parc/parc.component';
     MatOptionModule,
     MatSelectModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right', 
+    }),
     FormsModule,
     MatButtonModule,
+    MatTreeModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatGridListModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    MatSortModule,
+    MatSnackBarModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     
+      
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

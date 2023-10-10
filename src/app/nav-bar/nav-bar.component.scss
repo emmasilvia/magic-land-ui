@@ -1,0 +1,55 @@
+.navbar {
+  background: -webkit-linear-gradient(left, #a445b2, #2d80ee);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-left: 0px; /* Ajustează acest număr pentru a muta mai mult sau mai puțin la stânga */
+}
+
+
+.logo {
+  width: 90px;
+  height: 0px;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 80px;
+  height: auto;
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin: 0 10px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.example-form {
+  display: flex;
+  align-items: center;
+}
+
+.example-full-width {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.welcome-message {
+  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+
+
+
+
